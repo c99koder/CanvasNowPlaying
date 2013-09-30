@@ -28,7 +28,14 @@ public class NowPlayingReceiver extends BroadcastReceiver {
 			t.album = intent.getStringExtra(ALBUM);
 			t.id = intent.getLongExtra(ID, 0);
 			NowPlayingPlugin.set_track_details(t, context);
-		}
+		} else {
+            Track t = new Track();
+            t.artist = "";
+            t.title = "";
+            t.album = "";
+            t.id = 0;
+            NowPlayingPlugin.set_track_details(t, context);
+        }
 	}
 	
 	/*private static void dump_bundle(Bundle b) {
